@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require './models'
+require 'bundler/setup'
+require 'sinatra/flash'
 enable :sessions
 
 set :database, "sqlite3:ar.sqlite3"
@@ -41,8 +43,10 @@ post '/sign-in' do
   @user = User.where(fname: params[:fname]).first
   if @user.password == params[:password]
     session[:user_id] = @user.id
+    flash[:notice] = "You've been signed in successfully."
     redirect '/'
   else
+    flash[:notice] = "There was a problem signing you in."
     redirect '/sign-in-failed'
   end
 end

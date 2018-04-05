@@ -24,6 +24,9 @@ post '/users/new' do
   puts "*********************"
   puts params.inspect
   puts "*********************"
+  # should be called user instead of post
+  User.create(params[:post])
+  redirect '/users'
 end
 
 # params {

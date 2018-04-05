@@ -1,6 +1,13 @@
 <h2>Home</h2>
-<% @users.each do |user| %>
-<h2><%= user.fname %> <%= user.lname %></h2>
-<p>Email: <%= user.email %></p>
-<p>Age: <%= user.age %></p>
-<% end %>
+
+<form class="" action="/users/new" method="post">
+  <input type="text" name="[post]fname" placeholder="First Name">
+  <input type="text" name="[post]lname" placeholder="Last Name">
+  <input type="text" name="[post]age" placeholder="Age">
+  <input type="submit" name="" value="Submit">
+</form>
+<!-- # <% @users.each do |user| %>
+# <h2><%= user.fname %> <%= user.lname %></h2>
+# <p>Email: <%= user.email %></p>
+# <p>Age: <%= user.age %></p>
+# <% end %> -->

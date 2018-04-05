@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180404202226) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
+    t.string "title", limit: 50
     t.text "content"
     t.integer "user_id"
   end
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180404202226) do
   create_table "users", force: :cascade do |t|
     t.string "fname"
     t.string "lname"
+    t.string "password"
     t.string "email"
     t.integer "age"
   end
